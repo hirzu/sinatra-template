@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <title>Make the title dynamic</title>
+    <link rel="stylesheet" href="<%= stylesheet_path 'app' %>">
+    <script src="<%= javascript_path 'app' %>"></script>
+  </head>
+  <body>
+    <%= erb :"common/menu" %>
+    <%= yield %>
+  </body>
+</html>
