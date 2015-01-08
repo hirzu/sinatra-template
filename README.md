@@ -1,0 +1,1 @@
+Simple template for starting the Sinatra web application development.
