@@ -16,6 +16,14 @@ module Util
         def error_log.puts(message)
           self.error(message)
         end
+
+        def error_log.flush()
+        end
+
+        def error_log.write(message)
+          self.error(message)
+        end
+
         error_log.formatter = proc do |severity, time, progname, msg|
           "#{time} - #{severity}: #{msg}\n"
         end
