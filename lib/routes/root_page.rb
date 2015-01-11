@@ -19,6 +19,6 @@ module Routes
   end
 end
 
-module Sinatra
-  register Routes::RootPage
-end
+# module Sinatra
+#  register Routes::RootPage
+#end

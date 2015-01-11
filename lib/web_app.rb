@@ -34,6 +34,6 @@ class WebApp < Sinatra::Base
   # Route definitions
   #
   require 'routes/root_page'
-  # register Routes::RootPage
+  register Routes::RootPage
 
 end
