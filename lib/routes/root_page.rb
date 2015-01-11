@@ -7,10 +7,18 @@ module Routes
       #
       app.get '/' do
         $log.debug 'User accessing the front page.'
-        armo.pala
+        erb :"pages/frontpage"
+      end
+
+      app.get '/fail' do
+        this.should fail
         erb :"pages/frontpage"
       end
 
     end
   end
+end
+
+module Sinatra
+  register Routes::RootPage
 end
