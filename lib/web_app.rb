@@ -14,7 +14,6 @@ class WebApp < Sinatra::Base
 
   $log , error_log = Util::Log::LogInit.initialize_logs(File.expand_path('./'))
 
-
   #
   # General configurations
   #
@@ -26,6 +25,9 @@ class WebApp < Sinatra::Base
     set :views, Proc.new { File.join(root, "templates") }
   end
 
+  # 
+  # Generic before filter for all requirequests
+  #
   before do
     env['rack.errors'] = error_log
   end
@@ -33,7 +35,12 @@ class WebApp < Sinatra::Base
   #
   # Route definitions
   #
-  require 'routes/root_page'
+  # Automatic require for all *.rb files in routes.
+  # Still needs some refining to go through all sub directories, if deeper structure is needed.
+  #
+  require 'util/routes/file_loader'
+  Util::Routes::FileLoader.require_all_routes_in_dir File.expand_path('./lib/routes/')
   register Routes::RootPage
+  register Routes::SubRoutes::SubPages
 
 end

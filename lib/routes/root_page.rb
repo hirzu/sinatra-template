@@ -1,7 +1,8 @@
+
 module Routes
   module RootPage
-    def self.registered(app)
 
+    def self.registered(app)      
       #
       # The front page for the application
       #
@@ -9,7 +10,9 @@ module Routes
         $log.debug 'User accessing the front page.'
         erb :"pages/frontpage"
       end
-
+      #
+      # uri that gives an error, to demonstrate the error log printing.
+      #
       app.get '/fail' do
         this.should fail
         erb :"pages/frontpage"
@@ -18,7 +21,3 @@ module Routes
     end
   end
 end
-
-# module Sinatra
-#  register Routes::RootPage
-#end
